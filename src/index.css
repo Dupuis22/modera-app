@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Mrs+Saint+Delafield&family=Fraunces:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    /* Modera - Warm, calming palette */
+    --background: 35 30% 96%;
+    --foreground: 25 25% 25%;
+
+    --card: 35 35% 98%;
+    --card-foreground: 25 25% 25%;
+
+    --popover: 35 35% 98%;
+    --popover-foreground: 25 25% 25%;
+
+    /* Soft terracotta/rose primary */
+    --primary: 15 45% 65%;
+    --primary-foreground: 35 30% 98%;
+
+    /* Cream secondary */
+    --secondary: 35 25% 92%;
+    --secondary-foreground: 25 25% 35%;
+
+    /* Warm muted tones */
+    --muted: 35 20% 90%;
+    --muted-foreground: 25 15% 50%;
+
+    /* Blush accent */
+    --accent: 350 30% 88%;
+    --accent-foreground: 25 25% 30%;
+
+    --destructive: 0 60% 60%;
+    --destructive-foreground: 35 30% 98%;
+
+    --border: 35 20% 88%;
+    --input: 35 25% 92%;
+    --ring: 15 45% 65%;
+
+    --radius: 1rem;
+
+    /* Custom Modera tokens */
+    --modera-cream: 40 35% 95%;
+    --modera-sand: 35 25% 88%;
+    --modera-blush: 350 30% 90%;
+    --modera-terracotta: 15 45% 65%;
+    --modera-brown: 25 25% 35%;
+    --modera-warm-white: 35 40% 98%;
+
+    /* Progress colors - harmonious palette */
+    --progress-sage: 145 30% 55%;
+    --progress-lavender: 270 35% 65%;
+    --progress-peach: 25 55% 65%;
+    --progress-sky: 200 45% 60%;
+
+    --sidebar-background: 35 30% 96%;
+    --sidebar-foreground: 25 25% 25%;
+    --sidebar-primary: 15 45% 65%;
+    --sidebar-primary-foreground: 35 30% 98%;
+    --sidebar-accent: 35 25% 92%;
+    --sidebar-accent-foreground: 25 25% 35%;
+    --sidebar-border: 35 20% 88%;
+    --sidebar-ring: 15 45% 65%;
+  }
+
+  .dark {
+    --background: 25 20% 12%;
+    --foreground: 35 30% 92%;
+
+    --card: 25 18% 15%;
+    --card-foreground: 35 30% 92%;
+
+    --popover: 25 18% 15%;
+    --popover-foreground: 35 30% 92%;
+
+    --primary: 15 45% 60%;
+    --primary-foreground: 25 20% 10%;
+
+    --secondary: 25 15% 20%;
+    --secondary-foreground: 35 25% 85%;
+
+    --muted: 25 15% 18%;
+    --muted-foreground: 35 15% 60%;
+
+    --accent: 350 20% 25%;
+    --accent-foreground: 35 25% 90%;
+
+    --destructive: 0 55% 45%;
+    --destructive-foreground: 35 30% 95%;
+
+    --border: 25 15% 22%;
+    --input: 25 15% 20%;
+    --ring: 15 45% 55%;
+
+    --sidebar-background: 25 20% 10%;
+    --sidebar-foreground: 35 30% 92%;
+    --sidebar-primary: 15 45% 55%;
+    --sidebar-primary-foreground: 25 20% 10%;
+    --sidebar-accent: 25 15% 18%;
+    --sidebar-accent-foreground: 35 25% 90%;
+    --sidebar-border: 25 15% 20%;
+    --sidebar-ring: 15 45% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', serif;
+  }
+}
+
+@layer components {
+  .modera-card {
+    @apply bg-card rounded-3xl p-6 shadow-sm border border-border/50;
+  }
+
+  .modera-button-category {
+    @apply px-5 py-3 rounded-2xl text-sm font-medium transition-all duration-200 ease-out;
+  }
+
+  .modera-button-category-default {
+    @apply bg-secondary text-secondary-foreground hover:bg-accent;
+  }
+
+  .modera-button-category-active {
+    @apply bg-primary text-primary-foreground shadow-md;
+  }
+
+  .modera-input {
+    @apply w-full bg-secondary/60 border-0 rounded-2xl px-5 py-4 text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary/30 focus:bg-card transition-all duration-200;
+  }
+
+  .modera-primary-button {
+    @apply w-full bg-primary text-primary-foreground py-4 px-6 rounded-2xl font-medium text-base shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:brightness-105 active:scale-[0.98] transition-all duration-200;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Fraunces', serif;
+  }
+
+  .font-body {
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .modera-title {
+    position: relative;
+    display: inline-block;
+  }
+
+  .modera-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0.15em;
+    left: -5%;
+    width: 110%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, #ff6b9d 20%, #ff6b9d 80%, transparent 100%);
+    border-radius: 2px;
+    opacity: 0.6;
+  }
+
+  /* iOS Safe Area utilities */
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Safari/iOS image transparency fix */
+img {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Force transparent backgrounds on iOS */
+@supports (-webkit-touch-callout: none) {
+  img {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+}
