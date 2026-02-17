@@ -65,7 +65,11 @@ const Index = () => {
             {user?.plaisir ? `Consommations de ${user.plaisir} aujourd'hui` : "Consommations aujourd'hui"}
           </p>
           <p className="text-5xl font-light text-white mb-4">{todayCount}</p>
-          <motion.button whileTap={{ scale: 0.95 }} onClick={addOne} className="inline-flex items-center gap-2 px-8 py-3 bg-pink-500/80 text-white rounded-2xl font-medium text-base hover:bg-pink-500/90 transition-colors">
+          <motion.button whileTap={{ scale: 0.95 }} onClick={()=> {
+  window.gtag('event', 'clic_consommation');
+  addOne();
+}}
+ } className="inline-flex items-center gap-2 px-8 py-3 bg-pink-500/80 text-white rounded-2xl font-medium text-base hover:bg-pink-500/90 transition-colors">
             <Plus size={20} />
             J'ai consommé
           </motion.button>
