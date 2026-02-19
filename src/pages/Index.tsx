@@ -40,7 +40,21 @@ const Index = () => {
   const todayCount = getTodayCount();
   const alertVisible = shouldShowAlert();
 
-  return (
+ const handleClickModera = () => {
+
+  if (typeof window !== 'undefined' && (window as any).gtag) {
+
+    (window as any).gtag('event', 'click_bouton_modera', {
+
+      event_category: 'engagement',
+
+      event_label: 'Bouton principal Modera'
+
+    });
+
+  }
+
+} return (
     <div className="min-h-screen pb-24 relative overflow-hidden">
       {/* Fond cosmique */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#2d1b4e] via-[#4a3370] to-[#2d1b4e]" />
